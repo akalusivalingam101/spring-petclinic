@@ -1,5 +1,6 @@
 pipeline{
   agent none
+  def app
   stages{
     stage('Compile'){
       agent any
@@ -18,6 +19,12 @@ pipeline{
       steps{
         bat 'mvn package'
       }
+    }
+     stage('Build image') {
+        /* This builds the actual image; synonymous to
+         * docker build on the command line */
+
+        app = docker.build("getintodevops/hellonode")
     }
 
   }
