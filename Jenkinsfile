@@ -26,9 +26,12 @@ pipeline{
       }
     }
      stage('Push image to JFrog Artifactory') {
+       agent any
+       steps {
         withDockerRegistry([ credentialsId: "artifactory", url: "https://ananthakalusivalingam.jfrog.io" ]) {
         bat 'docker push spring-petclinic-jfrog-demo:latest'
         }
+       }
      }
   }
 }
