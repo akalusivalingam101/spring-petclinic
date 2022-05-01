@@ -4,19 +4,19 @@ pipeline{
     stage('Compile'){
       agent any
       steps{
-        sh 'mvn compile'
+        bat 'mvn compile'
       }
     }
     stage('Test'){
       agent any
       steps{
-        sh 'mvn test'
+        bat 'mvn test'
       }
     }
     stage('Package'){
       agent any
       steps{
-        sh 'mvn package'
+        bat 'mvn package'
       }
     }
 
