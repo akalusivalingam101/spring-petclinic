@@ -1,6 +1,5 @@
 pipeline{
   agent none
-  def app
   stages{
     stage('Compile'){
       agent any
@@ -20,11 +19,11 @@ pipeline{
         bat 'mvn package'
       }
     }
-     stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-        app = docker.build("getintodevops/hellonode")
+    stage('Docker Build') {
+      agent any
+      steps {
+        bat 'docker build -t spring-petclinic-jfrog-demo:latest .'
+      }
     }
 
   }
