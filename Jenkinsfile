@@ -25,6 +25,10 @@ pipeline{
         bat 'docker build -t spring-petclinic-jfrog-demo:latest .'
       }
     }
-
+     stage('Push image to JFrog Artifactory') {
+        withDockerRegistry([ credentialsId: "artifactory", url: "https://ananthakalusivalingam.jfrog.io" ]) {
+        bat 'docker push spring-petclinic-jfrog-demo:latest'
+        }
+     }
   }
 }
