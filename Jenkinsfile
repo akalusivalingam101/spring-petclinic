@@ -25,13 +25,13 @@ pipeline{
         bat 'docker build -t spring-petclinic-jfrog-demo:latest .'
       }
     }
-     stage('Push image to JFrog Artifactory') {
-       agent any
-       steps {
-        withDockerRegistry([ credentialsId: "artifactory", url: "https://ananthakalusivalingam.jfrog.io" ]) {
-        bat 'docker push spring-petclinic-jfrog-demo:latest'
+     stage('Docker Push') {
+      agent any
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+          sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+          sh 'docker push shanem/spring-petclinic:latest'
         }
-       }
-     }
+      }
   }
 }
