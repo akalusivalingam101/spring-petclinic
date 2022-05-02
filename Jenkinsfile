@@ -22,7 +22,7 @@ pipeline{
     stage('Docker Build') {
       agent any
       steps {
-        bat 'docker build -t spring-petclinic-jfrog-demo:latest .'
+        bat 'docker build -t umaan/spring-petclinic-jfrog-demo:latest .'
       }
     }
      stage('Docker Push') {
@@ -30,7 +30,7 @@ pipeline{
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword} docker.io"
-          bat 'docker push spring-petclinic-jfrog-demo:latest'
+          bat 'docker push umaan/spring-petclinic-jfrog-demo:latest'
         }
       }
      }
