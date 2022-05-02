@@ -38,7 +38,7 @@ pipeline{
       agent any
       steps {
         withCredentials([usernamePassword(credentialsId: 'jfrogatifactory', passwordVariable: 'jfrogatifactoryPassword', usernameVariable: 'jfrogatifactoryUser')]) {
-          bat "docker login -u ${env.jfrogatifactoryUser} -p ${env.jfrogatifactoryPassword} ananthakalusivalingam.jfrog.io
+          bat "docker login -u ${env.jfrogatifactoryUser} -p ${env.jfrogatifactoryPassword} ananthakalusivalingam.jfrog.io"
           bat 'docker push umaan/spring-petclinic-jfrog-demo:latest'
         }
       }
