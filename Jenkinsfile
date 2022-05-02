@@ -37,8 +37,8 @@ pipeline{
      stage('JFrog Artifactory Push') {
       agent any
       steps {
-        withCredentials([usernamePassword(credentialsId: 'jfrogatifactory', passwordVariable: 'jfrogatifactoryPassword', usernameVariable: 'jfrogatifactoryUser')]) {
-          bat "docker login -u ${env.jfrogatifactoryUser} -p ${env.jfrogatifactoryPassword} ananthakalusivalingam.jfrog.io"
+        withCredentials([usernamePassword(credentialsId: 'jfrogartifactory', passwordVariable: 'jfrogartifactoryPassword', usernameVariable: 'jfrogartifactoryUser')]) {
+          bat "docker login -u ${env.jfrogartifactoryUser} -p ${env.jfrogartifactoryPassword} ananthakalusivalingam.jfrog.io"
           bat 'docker push umaan/spring-petclinic-jfrog-demo:latest'
         }
       }
