@@ -29,7 +29,7 @@ pipeline{
       agent any
       steps {
         withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-          bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+          bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword} docker.io"
           bat 'docker push spring-petclinic-jfrog-demo:latest'
         }
       }
