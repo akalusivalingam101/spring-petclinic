@@ -33,7 +33,7 @@ jobs:
       - name: Login to JFrog 🐸  
         uses: docker/login-action@v1
         with:
-          registry: localhost:8081/artifactory
+          registry: 10.9.254.8:8081/artifactory
           username: ${{ secrets.LOCALHOST_USER_WRITER }}
           password: ${{ secrets.LOCALHOST_PWD_WRITER }}
       
