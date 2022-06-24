@@ -42,4 +42,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ananthakalusivalingam.jfrog.io/spring-petclinic-jfrog-demo:latest
+          tags: ananthakalusivalingam.jfrog.io/default-docker-local/spring-petclinic-jfrog-demo:latest
