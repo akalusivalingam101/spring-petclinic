@@ -33,7 +33,7 @@ jobs:
       - name: Login to JFrog 🐸  
         uses: docker/login-action@v1
         with:
-          registry: ananthakalusivalingam.jfrog.io
+          registry: http://localhost:8082/ui/login/
           username: ${{ secrets.JFROG_USER_WRITER }}
           password: ${{ secrets.JFROG_PWD_WRITER }}
       
@@ -42,4 +42,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ananthakalusivalingam.jfrog.io/spring-petclinic-jfrog-demo:latest
+          tags: http://localhost:8082/spring-petclinic-jfrog-demo:latest
