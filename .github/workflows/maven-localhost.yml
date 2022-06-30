@@ -33,7 +33,7 @@ jobs:
         uses: jfrog/setup-jfrog-cli@v2
         env:
             JF_ENV_1: ${{ secrets.JFROG_ACCESS_TOKEN }}
--        run: |
+      - run: |
          # Ping the server
             jf rt ping
       - name: Login to Self Hosted JFrog 🐸  
