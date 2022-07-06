@@ -22,7 +22,7 @@ pipeline{
     stage('Docker Build') {
       agent any
       steps {
-        bat 'docker build -t umaan/spring-petclinic-jfrog-demo:latest .'
+        bat 'docker build -t ananthak/spring-petclinic-jfrog-demo:latest .'
       }
     }
      stage('JFrog Artifactory Push') {
